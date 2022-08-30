@@ -66,9 +66,9 @@ INSERT INTO `marques` (id_marque`, `marque`, `logo`) VALUES
 
 
 INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `prix`, `nom_chaussure`) VALUES
-(1, 3, 35, 'rouge', 15000, 'Nike'),
-(2, 1, 20, 'gris', 30000, 'Adidas'),
-(3, 2, 50, 'Jaune', 45000, 'Vans');
+(1, 3, 35, 'Rose', 15000, 'Nike'),
+(2, 1, 20, 'Bleu', 30000, 'Adidas'),
+(3, 2, 50, 'Noir', 45000, 'Vans');
 
 
 -- LISTE LES MARQUES CONTENUS DANS DANS LA TABLES CHAUSSURES
