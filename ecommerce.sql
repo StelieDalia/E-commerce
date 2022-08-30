@@ -71,13 +71,13 @@ INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `pri
 (3, 2, 50, 'Noir', 45000, 'Vans');
 
 
--- LISTE LES MARQUES CONTENUS DANS DANS LA TABLES CHAUSSURES
-SELECT marque FROM marques;
+//Liste les marques contenues dans la table marques
+SELECT * FROM marques;
 
--- SUPPRIME LA CHAUSSURE DE MARQUE Nike
+//Supprime la chaussure de marque Nike
 DELETE FROM chaussures WHERE id_Chaussures = 1;  
 
--- MISE A JOUR LA CHAUSSURE DE MARQUE Nike
+//Mise à jour de la chaussure de marque Nike
 UPDATE chaussures SET nom_chaussure = 'Vans' WHERE id_Chaussures = 2;
 
 
