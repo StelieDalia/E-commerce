@@ -77,8 +77,8 @@ SELECT * FROM marques;
 //Supprime la chaussure de marque Nike
 DELETE FROM chaussures WHERE id_Chaussures = 1;  
 
-//Mise à jour de la chaussure de marque Nike
-UPDATE chaussures SET nom_chaussure = 'Vans' WHERE id_Chaussures = 2;
+//Mise à jour du prix de la chaussure de marque Nike
+UPDATE chaussures SET prix = '50000' WHERE id_Chaussures = 1;
 
 
     
