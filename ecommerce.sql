@@ -47,7 +47,7 @@ CREATE TABLE `chaussures` (
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `detailcommandes` (
+CREATE TABLE `liste_produit` (
   `id_Commande` int PRIMARY KEY  AUTO_INCREMENT,
   `id_Chaussures` int(9) NOT NULL,
   `quantite` int(3) NOT NULL,
