@@ -10,8 +10,8 @@ CREATE TABLE `clients` (
   `id_Client` int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
   `nom` varchar(150) NOT NULL,
   `prenom` varchar(75) NOT NULL,
-  `contact` int(11) NOT NULL,
-  `ville` varchar(45) NOT NULL,
+  `adresse` int(11) NOT NULL,
+  `email` varchar(45) NOT NULL,
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
@@ -47,7 +47,7 @@ CREATE TABLE `chaussures` (
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `liste_produit` (
+CREATE TABLE `liste_commandes` (
   `id_Commande` int PRIMARY KEY  AUTO_INCREMENT,
   `id_Chaussures` int(9) NOT NULL,
   `quantite` int(3) NOT NULL,
