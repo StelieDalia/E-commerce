@@ -39,7 +39,7 @@ CREATE TABLE `chaussures` (
   `taille` int(2) NOT NULL,
   `couleur` varchar(20) NOT NULL,
   `prix` float NOT NULL,
-  `nomChaussure` varchar(25) NOT NULL,  
+  `nom_chaussure` varchar(25) NOT NULL,  
   INDEX par_ind (id_marque),
   FOREIGN KEY (id_marque`)
   REFERENCES marques(id_marque`)
@@ -65,7 +65,7 @@ INSERT INTO `marques` (id_marque`, `marque`, `logo`) VALUES
 (3, 'Vans', 'LogoPuma');
 
 
-INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `prix`, `nomChaussure`) VALUES
+INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `prix`, `nom_chaussure`) VALUES
 (1, 3, 35, 'rouge', 15000, 'Nike'),
 (2, 1, 20, 'gris', 30000, 'Adidas'),
 (3, 2, 50, 'Jaune', 45000, 'Vans');
@@ -74,11 +74,11 @@ INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `pri
 -- LISTE LES MARQUES CONTENUS DANS DANS LA TABLES CHAUSSURES
 SELECT marque FROM marques;
 
--- SUPPRIME LA CHASSURE DE MARQUE Nike
+-- SUPPRIME LA CHAUSSURE DE MARQUE Nike
 DELETE FROM chaussures WHERE id_Chaussures = 1;  
 
--- MISE A JOUR LA CHASSURE DE MARQUE Nike
-UPDATE chaussures SET nomChaussure = 'Vans' WHERE id_Chaussures = 2;
+-- MISE A JOUR LA CHAUSSURE DE MARQUE Nike
+UPDATE chaussures SET nom_chaussure = 'Vans' WHERE id_Chaussures = 2;
 
 
     
