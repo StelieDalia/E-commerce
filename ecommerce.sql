@@ -1,6 +1,6 @@
-CREATE DATABASE e-commerce;
+CREATE DATABASE ecommerce;
 
-USE e-commerce;
+USE ecommerce;
 
 CREATE TABLE `clients` (
   `id_Client` int PRIMARY KEY ,
@@ -53,6 +53,8 @@ VALUES
 CREATE USER 'Andrew'@'localhost' IDENTIFIED BY '2019'
 
 UPDATE t SET id = id_chaussures + 1 ORDER BY id DESC;
+
+TRUNCATE TABLE chaussures;
 
 
     
