@@ -1,17 +1,11 @@
-CREATE DATABASE ecommerce;
-
-USE ecommerce
-
-CREATE USER 'Andrew'@'localhost' IDENTIFIED BY 'joshua';
-
-SELECT User, Host FROM mysql.user;
+CREATE DATABASE eshop;
 
 CREATE TABLE `clients` (
   `id_Client` int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
   `nom` varchar(150) NOT NULL,
   `prenom` varchar(75) NOT NULL,
   `adresse` int(11) NOT NULL,
-  `email` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
@@ -19,69 +13,77 @@ CREATE TABLE `commandes` (
   `id_Commande` int PRIMARY KEY AUTO_INCREMENT,
   `id_Client` int(9) NOT NULL,
   `date` varchar(10) NOT NULL,
-  INDEX par_ind (`id_Client`),
-  FOREIGN KEY (`id_Client`)
-  REFERENCES clients(`id_Client`)
-  ON DELETE CASCADE
+  FOREIGN KEY (`id_Client`) REFERENCES clients(`id_Client`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `marque` (
   `id_marque` int PRIMARY KEY AUTO_INCREMENT,
   `marque` varchar(25) NOT NULL,
-  `logo` varchar(10) NOT NULL,
+  `logo` varchar(10) NOT NULL
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `chaussures` (
   `id_Chaussures` int PRIMARY KEY AUTO_INCREMENT,
   `id_marque` int(9) NOT NULL,
-  `taille` int(2) NOT NULL,
+  `pointure` int(2) NOT NULL,
   `couleur` varchar(20) NOT NULL,
   `prix` float NOT NULL,
-  `nom_chaussure` varchar(25) NOT NULL,  
-  INDEX par_ind (id_marque),
-  FOREIGN KEY (id_marque`)
-  REFERENCES marques(id_marque`)
-  ON DELETE CASCADE
+  `nom_chaussure` varchar(25) NOT NULL,
+  `images` varchar(200) NOT NULL,  
+  FOREIGN KEY (`id_marque`) REFERENCES marque(`id_marque`),
+  KEY `pointure`(`pointure`)
+) ENGINE=Innodb DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `pointure` (
+  `id_pointure` int PRIMARY KEY AUTO_INCREMENT,
+   `pointure` int(2) NOT NULL,
+   FOREIGN KEY (`pointure`) REFERENCES chaussures(`pointure`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `liste_commandes` (
   `id_Commande` int PRIMARY KEY  AUTO_INCREMENT,
   `id_Chaussures` int(9) NOT NULL,
-  `quantite` int(3) NOT NULL,
-  INDEX par_ind (`id_Chaussures`),
-  FOREIGN KEY (`id_Chaussures`)
-  REFERENCES chaussures(`id_Chaussures`)
-  ON DELETE CASCADE
-  
+  `quantité` int(3) NOT NULL,
+  FOREIGN KEY (`id_Chaussures`) REFERENCES chaussures(`id_Chaussures`)
 ) ENGINE=Innodb DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `marques` (id_marque`, `marque`, `logo`) VALUES
-(1, 'Adidas', 'LogoAdidas'),
-(2, 'Nike', 'LogoNike'),
-(3, 'Vans', 'LogoPuma');
+INSERT INTO `marque` (`id_marque`, `marque`, `logo`) VALUES
+(NULL, 'Adidas', 'LogoAdidas'),
+(NULL, 'Nike', 'LogoNike'),
+(NULL, 'Puma', 'LogoPuma'),
+(NULL, 'Converse', 'LogoConverse');
 
 
-INSERT INTO `chaussures` (`id_Chaussures`, id_marque`, `taille`, `couleur`, `prix`, `nom_chaussure`) VALUES
-(1, 3, 35, 'Rose', 15000, 'Nike'),
-(2, 1, 20, 'Bleu', 30000, 'Adidas'),
-(3, 2, 50, 'Noir', 45000, 'Vans');
+INSERT INTO `chaussures` (`id_Chaussures`, `id_marque`, `pointure`, `couleur`, `prix`, `nom_chaussure`, `images`) VALUES
+(NULL, 2, 39, 'Rose', 85000, 'Nike', 'https://media2.fenom.com/81507'),
+(NULL, 1, 40, 'Bleu', 30000, 'Adidas', 'https://downtownstock.com/baskets-homme/4433-basket-adidas-originals-nmd-r1-ref-s77194.html'),
+(NULL, 3, 41, 'Noir', 45000, 'Converse', 'image3.jpg'),
+
+(NULL, 2, 45, 'Rouge', 90000, 'Nike', 'image4.jpg'),
+(NULL, 1, 30, 'Orange', 80000, 'Adidas', 'image5.jpg'),
+(NULL, 3, 40, 'Vert', 50000, 'Converse', 'image6.jpg'),
+
+(NULL, 2, 20, 'Gris', 25000, 'Nike', 'image7.jpg'),
+(NULL, 1, 28, 'Jaune', 60000, 'Adidas', 'image8.jpg'),
+(NULL, 3, 41, 'Blanc', 75000, 'Puma', 'image9.jpg');
 
 
-//Liste les marques contenues dans la table marques
-SELECT * FROM marques;
+INSERT INTO `pointure` (`id_pointure`, `pointure`) VALUES
+(NULL, 39),
+(NULL, 40),
+(NULL, 20),
+(NULL, 45),
+(NULL, 30),
+(NULL, 28),
+(NULL, 41);
 
-//Supprime la chaussure de marque Nike
-DELETE FROM chaussures WHERE id_Chaussures = 1;  
-
-//Mise à jour du prix de la chaussure de marque Nike
-UPDATE chaussures SET prix = '50000' WHERE id_Chaussures = 1;
 
 
-    
-    
-  
 
+
+--ALTER TABLE `chaussures` ADD INDEX(`pointure`);
